@@ -1,6 +1,7 @@
 import java.io.FileInputStream;
 import java.io.FileReader;
 import java.io.InputStream;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 /**
@@ -13,6 +14,8 @@ public class Menu {
     String op="";
     TelNoteRegex t=new TelNoteRegex();
     Operate operate=new Operate();
+    //ArrayList arrayList=new ArrayList();
+    boolean flag=true;
     public void mainMenu() throws Exception{
         System.out.println("        主菜单          ");
         System.out.println("************************");
@@ -24,8 +27,13 @@ public class Menu {
         System.out.println("**    6.退出系统      **");
         System.out.println("************************");
         System.out.println("请输入您要执行的操作：");
-        operate.readmessage();
         op=input.nextLine();
+        //ArrayList arrayList=new ArrayList();
+
+        if(flag) {
+            operate.readmessage();
+            flag=false;
+        }
         boolean b=t.chicknum(op);
         while (!b){
             System.out.println("您输入的数字不合法，请重新输入(按0退出)：");
@@ -38,23 +46,28 @@ public class Menu {
             switch (op) {
                 case "1":
                     addMenu();
+                    break;
                 case "2":
                     findMenu();
+                    break;
                 case "3":
                     modifyMenu();
+                    break;
                 case "4":
                     deleteMenu();
+                    break;
                 case "5":
-
+                    sortMenu();
+                    break;
                 case "6":
                     operate.writemessage();
                     System.exit(0);
                 default:
                     System.out.println("您输入的数字不合法，请重新输入");
-                    mainMenu();
+                    break;
             }
         }
-
+        mainMenu();
     }
 
     public void addMenu()throws Exception{
@@ -78,15 +91,18 @@ public class Menu {
             switch (op) {
                 case "1":
                     operate.addLogic();
+                    break;
                 case "2":
-                    //operate.searchLogic();
+                    operate.searchLogic();
+                    break;
                 case "3":
-                    mainMenu();
+                    return;
                 default:
                     System.out.println("您输入的数字不合法，请重新输入");
-                    addMenu();
+                    break;
             }
         }
+        addMenu();
     }
 
     public void findMenu()throws Exception{
@@ -113,24 +129,31 @@ public class Menu {
         if(b) {
             switch (op) {
                 case "1":
-                    //operate.searchLogic("name");
+                    operate.searchLogic("name");
+                    break;
                 case "2":
-                    //operate.searchLogic("age");
+                    operate.searchLogic("age");
+                    break;
                 case "3":
-                    //operate.searchLogic("sex");
+                    operate.searchLogic("sex");
+                    break;
                 case "4":
-                    //operate.searchLogic("telNum");
+                    operate.searchLogic("telNum");
+                    break;
                 case "5":
-                    //operate.searchLogic("address");
+                    operate.searchLogic("address");
+                    break;
                 case "6":
-                    //operate.searchLogic();
+                    operate.searchLogic();
+                    break;
                 case "7":
-                    mainMenu();
+                    return;
                 default:
                     System.out.println("您输入的数字不合法，请重新输入");
-                    findMenu();
+
             }
         }
+        findMenu();
     }
     public void modifyMenu()throws Exception{
         System.out.println("     修改记录子菜单     ");
@@ -152,16 +175,19 @@ public class Menu {
         if(b) {
             switch (op) {
                 case "1":
-                    //operate.searchLogic();
+                    operate.searchLogic();
+                    break;
                 case "2":
-                    //operate.modify();
+                    operate.modify();
+                    break;
                 case "3":
-                    mainMenu();
+                    return;
                 default:
                     System.out.println("您输入的数字不合法，请重新输入");
-                    modifyMenu();
+
             }
         }
+        modifyMenu();
     }
     public void deleteMenu()throws Exception{
         System.out.println("     删除记录子菜单     ");
@@ -184,18 +210,23 @@ public class Menu {
         if(b) {
             switch (op) {
                 case "1":
-                    ;
+                    operate.searchLogic();
+                    break;
                 case "2":
-                    ;
+                    operate.delone();
+                    break;
                 case "3":
-                    ;
+                    operate.delall();
+                    break;
                 case "4":
-                    mainMenu();;
+                    return;
                 default:
                     System.out.println("您输入的数字不合法，请重新输入");
-                    deleteMenu();
+
             }
         }
+        deleteMenu();
+
     }
     public void sortMenu()throws Exception{
         System.out.println("     排序记录子菜单     ");
@@ -219,19 +250,21 @@ public class Menu {
         if(b) {
             switch (op) {
                 case "1":
-                    ;
+                    break;
                 case "2":
-                    ;
+                    break;
                 case "3":
-                    ;
+                    break;
                 case "4":
-                    ;
+                    break;
                 case "5":
-                    mainMenu();;
+                    return;
                 default:
                     System.out.println("您输入的数字不合法，请重新输入");
-                    sortMenu();
+
             }
         }
+        sortMenu();
     }
+
 }
