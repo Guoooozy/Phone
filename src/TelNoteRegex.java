@@ -22,7 +22,7 @@ public class TelNoteRegex {
     {
         for(int i=0;i<name.length();i++)
         {
-            if(!(name.charAt(i)>=19968&&name.charAt(i)<=40869))
+            if(!(name.charAt(i)>=19968&&name.charAt(i)<=171941))
             {
                 return false;
             }

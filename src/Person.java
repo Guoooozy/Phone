@@ -61,19 +61,16 @@ public class Person {
         this.telNum = telNum;
     }
 
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
     public void setId(String id) {
         this.id = id;
     }
 
     @Override
     public String toString() {
-        return "Person{" +
-                "id='" + id + '\'' +
-                ", name='" + name + '\'' +
-                ", age='" + age + '\'' +
-                ", sex='" + sex + '\'' +
-                ", telNum='" + telNum + '\'' +
-                ", address='" + address + '\'' +
-                '}';
+        return name+" "+age+" "+sex+" "+telNum+" "+address;
     }
 }

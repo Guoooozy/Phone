@@ -1,3 +1,6 @@
+import java.io.FileInputStream;
+import java.io.FileReader;
+import java.io.InputStream;
 import java.util.Scanner;
 
 /**
@@ -10,7 +13,7 @@ public class Menu {
     String op="";
     TelNoteRegex t=new TelNoteRegex();
     Operate operate=new Operate();
-    public void mainMenu() {
+    public void mainMenu() throws Exception{
         System.out.println("        主菜单          ");
         System.out.println("************************");
         System.out.println("**    1.添加记录      **");
@@ -21,6 +24,7 @@ public class Menu {
         System.out.println("**    6.退出系统      **");
         System.out.println("************************");
         System.out.println("请输入您要执行的操作：");
+        operate.readmessage();
         op=input.nextLine();
         boolean b=t.chicknum(op);
         while (!b){
@@ -41,6 +45,7 @@ public class Menu {
                 case "4":
                     deleteMenu();
                 case "5":
+                    operate.writemessage();
                     System.exit(0);
                 default:
                     System.out.println("您输入的数字不合法，请重新输入");
@@ -50,7 +55,7 @@ public class Menu {
 
     }
 
-    public void addMenu(){
+    public void addMenu()throws Exception{
         System.out.println("     添加记录子菜单     ");
         System.out.println("************************");
         System.out.println("      1.添加新记录      ");
@@ -72,7 +77,7 @@ public class Menu {
                 case "1":
                     operate.addLogic();
                 case "2":
-                    operate.searchLogic();
+                    //operate.searchLogic();
                 case "3":
                     mainMenu();
                 default:
@@ -82,7 +87,7 @@ public class Menu {
         }
     }
 
-    public void findMenu(){
+    public void findMenu()throws Exception{
         System.out.println("     查找记录子菜单     ");
         System.out.println("************************");
         System.out.println("      1.按姓名查找      ");
@@ -106,17 +111,17 @@ public class Menu {
         if(b) {
             switch (op) {
                 case "1":
-                    operate.searchLogic("name");
+                    //operate.searchLogic("name");
                 case "2":
-                    operate.searchLogic("age");
+                    //operate.searchLogic("age");
                 case "3":
-                    operate.searchLogic("sex");
+                    //operate.searchLogic("sex");
                 case "4":
-                    operate.searchLogic("telNum");
+                    //operate.searchLogic("telNum");
                 case "5":
-                    operate.searchLogic("address");
+                    //operate.searchLogic("address");
                 case "6":
-                    operate.searchLogic();
+                    //operate.searchLogic();
                 case "7":
                     mainMenu();
                 default:
@@ -125,7 +130,7 @@ public class Menu {
             }
         }
     }
-    public void modifyMenu(){
+    public void modifyMenu()throws Exception{
         System.out.println("     修改记录子菜单     ");
         System.out.println("************************");
         System.out.println("      1.查看全记录      ");
@@ -145,9 +150,9 @@ public class Menu {
         if(b) {
             switch (op) {
                 case "1":
-                    ;
+                    //operate.searchLogic();
                 case "2":
-                    ;
+                    //operate.modify();
                 case "3":
                     mainMenu();
                 default:
@@ -156,7 +161,7 @@ public class Menu {
             }
         }
     }
-    public void deleteMenu(){
+    public void deleteMenu()throws Exception{
         System.out.println("     删除记录子菜单     ");
         System.out.println("************************");
         System.out.println("      1.查看全记录      ");
@@ -190,7 +195,7 @@ public class Menu {
             }
         }
     }
-    public void sortMenu(){
+    public void sortMenu()throws Exception{
         System.out.println("     排序记录子菜单     ");
         System.out.println("************************");
         System.out.println("      1.按姓名排序      ");
