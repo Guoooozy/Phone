@@ -9,6 +9,7 @@ public class Menu {
     Scanner input=new Scanner(System.in);
     String op="";
     TelNoteRegex t=new TelNoteRegex();
+    Operate operate=new Operate();
     public void mainMenu() {
         System.out.println("        主菜单          ");
         System.out.println("************************");
@@ -69,9 +70,9 @@ public class Menu {
         if(b) {
             switch (op) {
                 case "1":
-                    ;
+                    operate.addLogic();
                 case "2":
-                    ;
+                    operate.searchLogic();
                 case "3":
                     mainMenu();
                 default:
@@ -105,17 +106,17 @@ public class Menu {
         if(b) {
             switch (op) {
                 case "1":
-                    ;
+                    operate.searchLogic("name");
                 case "2":
-                    ;
+                    operate.searchLogic("age");
                 case "3":
-                    ;
+                    operate.searchLogic("sex");
                 case "4":
-                    ;
+                    operate.searchLogic("telNum");
                 case "5":
-
+                    operate.searchLogic("address");
                 case "6":
-
+                    operate.searchLogic();
                 case "7":
                     mainMenu();
                 default:
