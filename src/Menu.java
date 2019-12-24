@@ -3,6 +3,7 @@ import java.util.Scanner;
 /**
  * @author Guoooozy
  * @date 2019/12/24 - 10:23
+ * Menu 对应  Menu （菜单类）：定义多个方法，显示各种操作对应的菜单，并调用Operate类中的方法实现菜单中的内容
  */
 public class Menu {
     Scanner input=new Scanner(System.in);
