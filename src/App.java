@@ -8,6 +8,5 @@ import java.io.FileInputStream;
 public class App {
     public static void main(String[] args)throws Exception{
         new Menu().mainMenu();
-
     }
 }

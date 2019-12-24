@@ -71,6 +71,6 @@ public class Person {
 
     @Override
     public String toString() {
-        return name+" "+age+" "+sex+" "+telNum+" "+address;
+        return name+" "+age+" "+sex+" "+telNum+" "+address+"\n";
     }
 }

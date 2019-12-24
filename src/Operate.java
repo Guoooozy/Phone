@@ -1,3 +1,4 @@
+import javax.sound.midi.Soundbank;
 import java.io.*;
 import java.security.MessageDigest;
 import java.util.ArrayList;
@@ -18,10 +19,11 @@ public class Operate {
         FileInputStream fileInputStream = new FileInputStream("message.txt");
         BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(fileInputStream));
         String line=null;
+        String []temp=new String[10];
         while ((line=bufferedReader.readLine())!=null)
         {
             Person person=new Person();
-            String temp[]=line.split("\\s+");
+            temp=line.split("\\s+");
             person.setName(temp[0]);
             person.setAge(temp[1]);
             person.setSex(temp[2]);
@@ -34,14 +36,11 @@ public class Operate {
     }
     public void writemessage()throws Exception
     {
-        FileOutputStream fileOutputStream=new FileOutputStream("message.txt");
+        FileOutputStream fileOutputStream=new FileOutputStream("message.txt",true);
         BufferedWriter bufferedWriter=new BufferedWriter(new OutputStreamWriter(fileOutputStream));
-        Iterator it = arrayList.iterator();
-        while (it.hasNext())
-        {
-            bufferedWriter.write(it.toString());
-            bufferedWriter.close();
-        }
+        for(int i=0;i<arrayList.size();i++)
+            bufferedWriter.write(arrayList.get(i).toString());
+        bufferedWriter.close();
     }
     public void addLogic()
     {

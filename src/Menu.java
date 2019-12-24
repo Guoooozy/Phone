@@ -45,6 +45,8 @@ public class Menu {
                 case "4":
                     deleteMenu();
                 case "5":
+
+                case "6":
                     operate.writemessage();
                     System.exit(0);
                 default:
