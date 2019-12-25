@@ -250,12 +250,16 @@ public class Menu {
         if(b) {
             switch (op) {
                 case "1":
+                    operate.compare(1);
                     break;
                 case "2":
+                    operate.compare(2);
                     break;
                 case "3":
+                    operate.compare(3);
                     break;
                 case "4":
+                    operate.searchLogic();
                     break;
                 case "5":
                     return;

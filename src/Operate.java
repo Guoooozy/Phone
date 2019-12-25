@@ -1,11 +1,9 @@
 import javax.sound.midi.Soundbank;
 import java.io.*;
+import java.net.SocketTimeoutException;
 import java.nio.file.FileAlreadyExistsException;
 import java.security.MessageDigest;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 /**
  * @author Guoooozy
@@ -75,16 +73,21 @@ public class Operate {
         }
         if(tem)
         arrayList.add(person);
+        System.out.println("添加成功");
 
     }
     public void searchLogic()
     {
+        boolean flag=true;
         Iterator<Person> it=arrayList.iterator();
         while (it.hasNext())
         {
             Person s=it.next();
             System.out.println(s);
+            flag=false;
         }
+        if(flag)
+            System.out.println("未找到信息");
     }
     public void searchLogic(String where)
     {
@@ -155,19 +158,29 @@ public class Operate {
         while (it.hasNext())
         {
             Person s=it.next();
+            boolean flag=false;
             if(s.getName().equals(who))
             {
                 switch (what){
                     case "name":
-                        s.setName(value);
+                        flag=s.setName(value);
+                        break;
                     case "age":
-                        s.setAge(value);
+                        flag=s.setAge(value);
+                        break;
                     case "sex":
-                        s.setSex(value);
+                        flag=s.setSex(value);
+                        break;
                     case "telNum":
-                        s.setTelNum(value);
+                        flag=s.setTelNum(value);
+                        break;
                     case "adress":
-                        s.setAddress(value);
+                        flag=s.setAddress(value);
+                        break;
+                }
+                if(!flag) {
+                    System.out.println("修改失败，请重新输入");
+                    modify();
                 }
             }
         }
@@ -177,12 +190,16 @@ public class Operate {
         System.out.println("请输入你要删除对象的名字：");
         String name=input.nextLine();
         Iterator<Person> iterator=arrayList.iterator();
+        boolean flag=true;
         while (iterator.hasNext())
         {
             Person s=iterator.next();
             if(s.getName().equals(name))
                 iterator.remove();
+                flag=false;
         }
+        if(flag)
+            System.out.println("删除失败，请重新输入");
     }
 
     public void delall()
@@ -190,6 +207,39 @@ public class Operate {
         arrayList.clear();
     }
 
+    public void compare(int op)
+    {
+        Comparator<Person> comparator1=new Comparator<Person>() {
+            @Override
+            public int compare(Person o1, Person o2) {
+                return o1.getName().compareTo(o2.getName());
+            }
+        };
+        Comparator<Person> comparator2=new Comparator<Person>() {
+            @Override
+            public int compare(Person o1, Person o2) {
+                return o1.getAge().compareTo(o2.getAge());
+            }
+        };
+        Comparator<Person> comparator3=new Comparator<Person>() {
+            @Override
+            public int compare(Person o1, Person o2) {
+                return o1.getSex().compareTo(o2.getSex());
+            }
+        };
+
+        switch (op)
+        {
+            case 1:
+                Collections.sort(arrayList,comparator1);
+            case 2:
+                Collections.sort(arrayList,comparator2);
+            case 3:
+                Collections.sort(arrayList,comparator3);
+        }
+        System.out.println("排序成功");
+
+    }
 
 }
 
