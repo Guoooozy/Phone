@@ -53,7 +53,7 @@ public class Person {
             return true;
         }
         else
-            System.out.println("输入名字不合法，请重新输入");
+            System.out.println("输入名字不合法，请检查输入是否为中文，重新输入");
             return false;
     }
 
@@ -63,7 +63,7 @@ public class Person {
             return true;
         }
         else {
-            System.out.println("输入年龄不合法，请重新输入");
+            System.out.println("输入年龄不合法，请检查输入是否为数字，重新输入");
             return false;
         }
     }
@@ -74,7 +74,7 @@ public class Person {
             return true;
         }
         else {
-            System.out.println("输入性别不合法，请重新输入");
+            System.out.println("输入性别不合法，请输入male或者female，重新输入");
             return false;
         }
     }
@@ -86,7 +86,7 @@ public class Person {
             return true;
         }
         else {
-            System.out.println("输入手机号不合法，请重新输入");
+            System.out.println("输入手机号不合法，请输入十一位数字，重新输入");
             return false;
         }
     }
@@ -97,7 +97,7 @@ public class Person {
             return true;
         }
         else {
-            System.out.println("输入地址不合法，请重新输入");
+            System.out.println("输入地址不合法，请输入中文，重新输入");
             return false;
         }
     }

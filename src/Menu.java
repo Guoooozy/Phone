@@ -16,6 +16,7 @@ public class Menu {
     Operate operate=new Operate();
     //ArrayList arrayList=new ArrayList();
     boolean flag=true;
+    //主菜单
     public void mainMenu() throws Exception{
         System.out.println("        主菜单          ");
         System.out.println("************************");
@@ -69,7 +70,7 @@ public class Menu {
         }
         mainMenu();
     }
-
+    //添加菜单
     public void addMenu()throws Exception{
         System.out.println("     添加记录子菜单     ");
         System.out.println("************************");
@@ -104,7 +105,7 @@ public class Menu {
         }
         addMenu();
     }
-
+    //查找菜单
     public void findMenu()throws Exception{
         System.out.println("     查找记录子菜单     ");
         System.out.println("************************");
@@ -155,6 +156,7 @@ public class Menu {
         }
         findMenu();
     }
+    //修改菜单
     public void modifyMenu()throws Exception{
         System.out.println("     修改记录子菜单     ");
         System.out.println("************************");
@@ -189,6 +191,7 @@ public class Menu {
         }
         modifyMenu();
     }
+    //删除菜单
     public void deleteMenu()throws Exception{
         System.out.println("     删除记录子菜单     ");
         System.out.println("************************");
@@ -228,6 +231,7 @@ public class Menu {
         deleteMenu();
 
     }
+    //排序菜单
     public void sortMenu()throws Exception{
         System.out.println("     排序记录子菜单     ");
         System.out.println("************************");

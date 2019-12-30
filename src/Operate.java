@@ -10,10 +10,12 @@ import java.util.*;
  * @date 2019/12/24 - 10:23
  * Operate 对应  Operate（业务处理类）：定义每一个具体操作的方法
  */
+
 public class Operate {
     ArrayList arrayList=new ArrayList();
     Scanner input=new Scanner(System.in);
     public Operate(){}
+    //读取文件
     public void readmessage() throws Exception
     {
         FileInputStream fileInputStream = new FileInputStream("message.txt");
@@ -34,6 +36,7 @@ public class Operate {
         }
         bufferedReader.close();
     }
+    //写入message文件中
     public void writemessage()throws Exception
     {
         FileWriter writer=new FileWriter("message.txt");
@@ -44,6 +47,8 @@ public class Operate {
         }
         bufferedWriter.close();
     }
+
+    //添加信息
     public void addLogic()throws Exception
     {
         boolean tem=false;
@@ -76,6 +81,7 @@ public class Operate {
         System.out.println("添加成功");
 
     }
+    //查找全部信息
     public void searchLogic()
     {
         boolean flag=true;
@@ -89,6 +95,7 @@ public class Operate {
         if(flag)
             System.out.println("未找到信息");
     }
+    //查找特定信息
     public void searchLogic(String where)
     {
         System.out.println("请输入你要查找的值");
@@ -146,6 +153,7 @@ public class Operate {
         if(flag)
         System.out.println("未找到信息");
     }
+    //修改信息
     public void modify()
     {
         System.out.println("请输入你要修改的人的姓名");
@@ -185,6 +193,7 @@ public class Operate {
             }
         }
     }
+    //删除信息
     public void delone()
     {
         System.out.println("请输入你要删除对象的名字：");
@@ -201,12 +210,12 @@ public class Operate {
         if(flag)
             System.out.println("删除失败，请重新输入");
     }
-
+    //删除全信息
     public void delall()
     {
         arrayList.clear();
     }
-
+    //排序
     public void compare(int op)
     {
         Comparator<Person> comparator1=new Comparator<Person>() {
